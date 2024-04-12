@@ -36,6 +36,7 @@ const store = configureStore({
   //     }),
   reducer: {
     user: userSlice,
+    // tweet: tweetSlice,
   },
 });
 export default store;

@@ -20,6 +20,6 @@ const useOtherUsers = (id) => {
       }
     };
     fetchOtherUsers();
-  }, [id]);
+  }, []);
 };
 export default useOtherUsers;
