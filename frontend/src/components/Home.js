@@ -4,12 +4,14 @@ import LeftSidebar from "./LeftSidebar";
 import RightSidebar from "./RightSidebar";
 
 import { Outlet } from "react-router-dom";
-// import { useSelector } from "react-redux";
-// import useGetProfile from "../hooks/useGetProfile";
+import { useSelector } from "react-redux";
+import useGetProfile from "../hooks/useGetProfile";
 // import Feed from "./Feed";
 // import Profile from "./Profile";
 
 const Home = () => {
+  // const { user } = useSelector((store) => store.user);
+
   return (
     <div className="flex justify-between w-[80%] mx-auto">
       <LeftSidebar />

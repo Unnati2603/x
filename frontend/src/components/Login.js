@@ -44,6 +44,7 @@ const Login = () => {
         );
       }
       dispatch(getUser(res?.data?.user));
+      // redux me user set ho jayega
       if (res.data.success) {
         navigate("/");
         toast.success(res.data.message);

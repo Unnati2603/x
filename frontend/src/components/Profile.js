@@ -8,6 +8,8 @@ import { useSelector } from "react-redux";
 import useGetProfile from "../hooks/useGetProfile";
 
 const Profile = () => {
+  // const id = "23456sdfgh";
+
   const { user, profile } = useSelector((store) => store.user);
   console.log(user?._id);
   useGetProfile(user?._id);
