@@ -1,6 +1,6 @@
 import { configureStore, combineReducers } from "@reduxjs/toolkit";
 import userSlice from "./userSlice";
-// import tweetSlice from "./tweetSlice";
+import tweetSlice from "./tweetSlice";
 
 // import {
 //   persistStore,
@@ -36,7 +36,7 @@ const store = configureStore({
   //     }),
   reducer: {
     user: userSlice,
-    // tweet: tweetSlice,
+    tweet: tweetSlice,
   },
 });
 export default store;

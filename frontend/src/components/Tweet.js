@@ -17,11 +17,11 @@ const Tweet = ({ tweet }) => {
           />
           <div className=" ml-2 w-full">
             <div className="flex items-center">
-              <h1 className="font-bold">name</h1>
-              <p className="text-gray-500 text-sm ml-1">id</p>
+              <h1 className="font-bold">{tweet?.userDetails[0].name}</h1>
+              <p className="text-gray-500 text-sm ml-1">{`@${tweet?.userDetails[0].name}`}</p>
             </div>
             <div>
-              <p>description</p>
+              <p>{tweet?.description}</p>
             </div>
             <div className="flex justify-between my-3">
               <div className="flex items-center">
@@ -34,7 +34,7 @@ const Tweet = ({ tweet }) => {
                 <div className="p-2 hover:bg-pink-200 rounded-full cursor-pointer">
                   <CiHeart size="24px" />
                 </div>
-                <p>0</p>
+                <p>{tweet?.like?.length}</p>
               </div>
               <div className="flex items-center">
                 <div className="p-2 hover:bg-yellow-200 rounded-full cursor-pointer">

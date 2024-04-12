@@ -19,5 +19,5 @@ const tweetSlice = createSlice({
   },
 });
 // export const { getAllTweets, getRefresh, getIsActive } = tweetSlice.actions;
-// export const { getAllTweets, getRefresh, getIsActive } = tweetSlice.actions;
+export const { getAllTweets } = tweetSlice.actions;
 export default tweetSlice.reducer;

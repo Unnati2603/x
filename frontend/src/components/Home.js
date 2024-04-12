@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useGetProfile from "../hooks/useGetProfile";
 import useOtherUsers from "../hooks/useOtherUsers";
+import useGetMyTweets from "../hooks/useGetMyTweets";
 // import Feed from "./Feed";
 // import Profile from "./Profile";
 
@@ -15,6 +16,7 @@ const Home = () => {
   const { user, otherUsers } = useSelector((store) => store.user);
 
   useOtherUsers(user?._id);
+  useGetMyTweets(user?._id);
 
   return (
     <div className="flex justify-between w-[80%] mx-auto">

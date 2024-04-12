@@ -3,7 +3,7 @@ import React from "react";
 import { IoMdArrowBack } from "react-icons/io";
 import Avatar from "react-avatar";
 
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
 import useGetProfile from "../hooks/useGetProfile";
 
@@ -11,7 +11,8 @@ const Profile = () => {
   // const id = "23456sdfgh";
 
   const { user, profile } = useSelector((store) => store.user);
-  console.log(user?._id);
+  // console.log(user?._id);
+  const id = useParams();
   useGetProfile(user?._id);
 
   return (

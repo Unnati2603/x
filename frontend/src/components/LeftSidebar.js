@@ -7,7 +7,10 @@ import { CiUser } from "react-icons/ci";
 import { CiBookmark } from "react-icons/ci";
 import { AiOutlineLogout } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 const LeftSidebar = () => {
+  const { user } = useSelector((store) => store.user);
+
   return (
     <div>
       <div className="w-[20%]">
@@ -37,7 +40,7 @@ const LeftSidebar = () => {
             <h1 className="font-bold text-lg ml-2 ">Notifications</h1>
           </div>
           <Link
-            to="/profile"
+            to={`/profile/${user?._id}`}
             className="flex items-center my-2 px-4 py-2 hover:bg-gray-200 hover:cursor-pointer rounded-full"
           >
             <div>
