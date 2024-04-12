@@ -1,7 +1,65 @@
+import axios from "axios";
+import { useState } from "react";
 import Avatar from "react-avatar";
 import { CiImageOn } from "react-icons/ci";
+import { TWEET_API_END_POINT } from "../utils/constant";
+import toast from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
+import { getAllTweets, getIsActive, getRefresh } from "../redux/tweetSlice";
 
 const CreatePost = () => {
+  const [description, setDescription] = useState("");
+  const { user } = useSelector((store) => store.user);
+
+  //
+  // for tweets to be shown in real timee:
+  const dispatch = useDispatch();
+  //
+
+  // const submitHandler = async () => {
+  //   try {
+  //     const res = await axios.post(
+  //       `${TWEET_API_END_POINT}/create`,
+  //       { description, id: user?._id },
+  //       {
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         withCredentials: true,
+  //       }
+  //     );
+  //     // console.log("success");
+  //     dispatch(getRefresh());
+  //     //
+  //     if (res.data.success) {
+  //       toast.error(res.response.data.message);
+  //     }
+  //   } catch (error) {}
+  // };
+
+  const submitHandler = async () => {
+    try {
+      const res = await axios.post(
+        `${TWEET_API_END_POINT}/create`,
+        { description, id: user?._id },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+          withCredentials: true,
+        }
+      );
+      dispatch(getRefresh());
+      if (res.data.success) {
+        toast.success(res.data.message);
+      }
+    } catch (error) {
+      toast.error(error.response.data.message);
+      console.log(error);
+    }
+    setDescription("");
+  };
+
   return (
     <div className="w-[100%]">
       <div>
@@ -26,8 +84,8 @@ const CreatePost = () => {
               />
             </div>
             <input
-              //   value={description}
-              //   onChange={(e) => setDescription(e.target.value)}
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
               className="w-full outline-none border-none text-xl ml-2"
               type="text"
               placeholder="What is happening?!"
@@ -39,7 +97,7 @@ const CreatePost = () => {
               <CiImageOn size="24px" />
             </div>
             <button
-              //   onClick={submitHandler}
+              onClick={submitHandler}
               className="bg-[#1D9BF0] px-4 py-1 text-lg text-white text-right border-none rounded-full "
             >
               Post
