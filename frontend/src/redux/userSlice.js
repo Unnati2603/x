@@ -17,18 +17,20 @@ const userSlice = createSlice({
     getMyProfile: (state, action) => {
       state.profile = action.payload;
     },
-    // followingUpdate: (state, action) => {
-    //   // unfollow
-    //   if (state.user.following.includes(action.payload)) {
-    //     state.user.following = state.user.following.filter((itemId) => {
-    //       return itemId !== action.payload;
-    //     });
-    //   } else {
-    //     // follow
-    //     state.user.following.push(action.payload);
-    //   }
-    // },
+    // all these refresh the statte ?
+    followingUpdate: (state, action) => {
+      // id is in follow arr so unfollow
+      if (state.user.following.includes(action.payload)) {
+        state.user.following = state.user.following.filter((itemId) => {
+          return itemId !== action.payload;
+        });
+      } else {
+        // id is not in follow arr so follow
+        state.user.following.push(action.payload);
+      }
+    },
   },
 });
-export const { getUser, getOtherUsers, getMyProfile } = userSlice.actions;
+export const { getUser, getOtherUsers, getMyProfile, followingUpdate } =
+  userSlice.actions;
 export default userSlice.reducer;

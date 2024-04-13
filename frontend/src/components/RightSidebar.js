@@ -48,7 +48,6 @@ const RightSidebar = ({ otherUsers }) => {
               </div>
 
               <Link to={`/profile/${user?._id}`}>
-                {" "}
                 <button className="px-4 py-1 bg-black text-white rounded-full">
                   Profile
                 </button>
