@@ -12,6 +12,9 @@ import { useDispatch, useSelector } from "react-redux";
 import toast from "react-hot-toast";
 import { getRefresh } from "../redux/tweetSlice";
 
+// for time of tweet
+import { timeSince } from "../utils/constant";
+
 const Tweet = ({ tweet }) => {
   const { user } = useSelector((store) => store.user);
   // const dispatch = useDispatch;
@@ -61,7 +64,9 @@ const Tweet = ({ tweet }) => {
           <div className=" ml-2 w-full">
             <div className="flex items-center">
               <h1 className="font-bold">{tweet?.userDetails[0].name}</h1>
-              <p className="text-gray-500 text-sm ml-1">{`@${tweet?.userDetails[0].name}`}</p>
+              <p className="text-gray-500 text-sm ml-1">{`@${
+                tweet?.userDetails[0].name
+              }  ${timeSince(user?.createdAt)}`}</p>
             </div>
             <div>
               <p>{tweet?.description}</p>
