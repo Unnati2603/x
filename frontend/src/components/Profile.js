@@ -10,6 +10,8 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { USER_API_END_POINT } from "../utils/constant";
 import { followingUpdate } from "../redux/userSlice";
+
+import a from "./a.jpg";
 const Profile = () => {
   // const id = "23456sdfgh";
 
@@ -91,11 +93,7 @@ const Profile = () => {
           alt="banner"
         />
         <div className="absolute top-52 ml-2 border-4 border-white rounded-full">
-          <Avatar
-            src="https://pbs.twimg.com/profile_images/1769836151823581184/5K2U8bIZ_400x400.png"
-            size="120"
-            round={true}
-          />
+          <Avatar src={`${a}`} size="120" round={true} />
         </div>
         <div className="text-right m-4 ">
           {profile?._id == user?._id ? (
