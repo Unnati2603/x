@@ -35,7 +35,7 @@ app.use(express.json());
 
 app.use(cookieParser());
 const corsOptions = {
-  origin: "https://chatters-gray.vercel.app/login",
+  origin: "https://chatters-gray.vercel.app",
   credentials: true,
 };
 app.use(cors(corsOptions));
