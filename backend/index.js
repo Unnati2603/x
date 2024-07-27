@@ -40,6 +40,11 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 
+//for deploment
+app.get("/api", (req, res) => {
+  res.send("Hello from the backend!");
+});
+
 // api
 app.use("/api/v1/user", userRoute);
 
