@@ -21,7 +21,11 @@ dotenv.config({
 // PORT=8080
 
 //database from database.js in config
-databaseConnection();
+// databaseConnection();
+databaseConnection()
+  .then(() => console.log("Database connected successfully"))
+  .catch((err) => console.error("Database connection error: " + err));
+
 const app = express();
 
 // middlewares
