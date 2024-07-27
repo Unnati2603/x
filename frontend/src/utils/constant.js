@@ -1,5 +1,11 @@
-export const USER_API_END_POINT = "http://localhost:8080/api/v1/user";
-export const TWEET_API_END_POINT = "http://localhost:8080/api/v1/tweet";
+// export const USER_API_END_POINT = "http://localhost:8080/api/v1/user";
+// export const TWEET_API_END_POINT = "http://localhost:8080/api/v1/tweet";
+
+// Updated API endpoints for the deployed backend
+export const USER_API_END_POINT =
+  "https://chatter-nine-ochre.vercel.app/api/v1/user";
+export const TWEET_API_END_POINT =
+  "https://chatter-nine-ochre.vercel.app/api/v1/tweet";
 
 // backend me login wala
 
