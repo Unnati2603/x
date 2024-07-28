@@ -1,78 +1,3 @@
-// import express from "express";
-// import dotenv from "dotenv";
-// import databaseConnection from "./config/database.js";
-// import cookieParser from "cookie-parser";
-// import userRoute from "./routes/userRoute.js";
-// import tweetRoute from "./routes/tweetRoute.js";
-// import cors from "cors";
-
-// // const corsOption = {
-// //   origin: ["http://localhost:3000"],
-// //   credentials: true,
-// //   methods: ["GET", "POST", "PUT", "DELETE"],
-// // };
-// // app.use(cors(corsOption));
-// //the env me port jo def.. h
-// // controller routes, models... are backend naming programs
-// dotenv.config({
-//   path: ".env",
-// });
-
-// // PORT=8080
-
-// //database from database.js in config
-// // databaseConnection();
-// databaseConnection()
-//   .then(() => console.log("Database connected successfully"))
-//   .catch((err) => console.error("Database connection error: " + err));
-
-// const app = express();
-
-// // middlewares
-// // ggogle said: in web development, middleware is a function that runs between a request and a response. It can perform tasks before the controller is executed, or after the controller returns a response. Middleware's primary features include: Modifying request and response objects, Authentication and authorization checks, Error handling, and Request and response loggin
-// app.use(
-//   express.urlencoded({
-//     extended: true,
-//   })
-// );
-// app.use(express.json());
-
-// app.use(cookieParser());
-// const corsOptions = {
-//   origin: "https://chatters-gray.vercel.app",
-//   credentials: true,
-// };
-// app.use(cors(corsOptions));
-
-// //for deploment
-// app.get("/api", (req, res) => {
-//   res.send("Hello from the backend!");
-// });
-
-// // api
-// app.use("/api/v1/user", userRoute);
-
-// // the first one will be at
-// //  http://localhost:8080/api/v1/user/register
-// //check
-
-// app.get("/home", (req, res) => {
-//   res.status(200).json({
-//     message: "I WANTTTTTTT TOOOO CRYYYYYY",
-//   });
-// });
-
-// // the above will give on localhost:8080/home this:
-// //{"message":"I WANTTTTTTT TOOOO CRYYYYYY"}
-
-// // for tweets
-
-// app.use("/api/v1/tweet", tweetRoute);
-
-// app.listen(process.env.PORT, () => {
-//   console.log(`Server listen at port ${process.env.PORT}`);
-// });
-
 import express from "express";
 import dotenv from "dotenv";
 import databaseConnection from "./config/database.js";
@@ -81,34 +6,55 @@ import userRoute from "./routes/userRoute.js";
 import tweetRoute from "./routes/tweetRoute.js";
 import cors from "cors";
 
+// const corsOption = {
+//   origin: ["http://localhost:3000"],
+//   credentials: true,
+//   methods: ["GET", "POST", "PUT", "DELETE"],
+// };
+// app.use(cors(corsOption));
+//the env me port jo def.. h
+// controller routes, models... are backend naming programs
 dotenv.config({
   path: ".env",
 });
 
-const PORT = process.env.PORT || 8080;
+// PORT=8080
 
-databaseConnection()
-  .then(() => console.log("Database connected successfully"))
-  .catch((err) => console.error("Database connection error: " + err));
+//database from database.js in config
+// databaseConnection();
+databaseConnection();
+// .then(() => console.log("Database connected successfully"))
+// .catch((err) => console.error("Database connection error: " + err));
 
 const app = express();
 
-app.use(express.urlencoded({ extended: true }));
+// middlewares
+// ggogle said: in web development, middleware is a function that runs between a request and a response. It can perform tasks before the controller is executed, or after the controller returns a response. Middleware's primary features include: Modifying request and response objects, Authentication and authorization checks, Error handling, and Request and response loggin
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
 app.use(express.json());
-app.use(cookieParser());
 
+app.use(cookieParser());
 const corsOptions = {
   origin: "https://chatters-gray.vercel.app",
   credentials: true,
 };
 app.use(cors(corsOptions));
 
+//for deploment
 app.get("/api", (req, res) => {
   res.send("Hello from the backend!");
 });
 
+// api
 app.use("/api/v1/user", userRoute);
-app.use("/api/v1/tweet", tweetRoute);
+
+// the first one will be at
+//  http://localhost:8080/api/v1/user/register
+//check
 
 app.get("/home", (req, res) => {
   res.status(200).json({
@@ -116,14 +62,68 @@ app.get("/home", (req, res) => {
   });
 });
 
-app.use((err, req, res, next) => {
-  console.error(err.stack);
-  res.status(500).send("Something broke!");
+// the above will give on localhost:8080/home this:
+//{"message":"I WANTTTTTTT TOOOO CRYYYYYY"}
+
+// for tweets
+
+app.use("/api/v1/tweet", tweetRoute);
+
+app.listen(process.env.PORT, () => {
+  console.log(`Server listen at port ${process.env.PORT}`);
 });
 
-app.listen(PORT, () => {
-  console.log(`Server listening at port ${PORT}`);
-});
+// import express from "express";
+// import dotenv from "dotenv";
+// import databaseConnection from "./config/database.js";
+// import cookieParser from "cookie-parser";
+// import userRoute from "./routes/userRoute.js";
+// import tweetRoute from "./routes/tweetRoute.js";
+// import cors from "cors";
+
+// dotenv.config({
+//   path: ".env",
+// });
+
+// const PORT = process.env.PORT || 8080;
+
+// databaseConnection()
+//   .then(() => console.log("Database connected successfully"))
+//   .catch((err) => console.error("Database connection error: " + err));
+
+// const app = express();
+
+// app.use(express.urlencoded({ extended: true }));
+// app.use(express.json());
+// app.use(cookieParser());
+
+// const corsOptions = {
+//   origin: "https://chatters-gray.vercel.app",
+//   credentials: true,
+// };
+// app.use(cors(corsOptions));
+
+// app.get("/api", (req, res) => {
+//   res.send("Hello from the backend!");
+// });
+
+// app.use("/api/v1/user", userRoute);
+// app.use("/api/v1/tweet", tweetRoute);
+
+// app.get("/home", (req, res) => {
+//   res.status(200).json({
+//     message: "I WANTTTTTTT TOOOO CRYYYYYY",
+//   });
+// });
+
+// app.use((err, req, res, next) => {
+//   console.error(err.stack);
+//   res.status(500).send("Something broke!");
+// });
+
+// app.listen(PORT, () => {
+//   console.log(`Server listening at port ${PORT}`);
+// });
 
 // import express from "express";
 // import dotenv from "dotenv";
