@@ -87,9 +87,9 @@ dotenv.config({
 
 const PORT = process.env.PORT || 8080;
 
-databaseConnection()
-  .then(() => console.log("Database connected successfully"))
-  .catch((err) => console.error("Database connection error: " + err));
+databaseConnection();
+// .then(() => console.log("Database connected successfully"))
+// .catch((err) => console.error("Database connection error: " + err));
 
 const app = express();
 
