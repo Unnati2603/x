@@ -1,3 +1,6 @@
+links are down... working currently on updates
+
+
 This is a clone of the popular website twitter... 
 
 
